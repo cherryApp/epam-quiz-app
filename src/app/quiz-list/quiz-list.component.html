@@ -2,6 +2,8 @@
   <a
     href="#"
     class="list-group-item list-group-item-action"
+    [class.active]="isActive == quiz.name"
+    (click)="setActiveQuiz(quiz)"
     *ngFor="let quiz of list">
       {{ quiz.title }}
   </a>

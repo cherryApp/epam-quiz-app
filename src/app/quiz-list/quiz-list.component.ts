@@ -9,8 +9,13 @@ import { Quiz } from '../model/quiz';
 export class QuizListComponent implements OnInit {
 
   @Input() list: Array<Quiz>;
+  isActive: string;
 
   constructor() {}
+
+  setActiveQuiz(quiz: Quiz) {
+    this.isActive = quiz.name;
+  }
 
   ngOnInit() {
     console.log( this.list );
