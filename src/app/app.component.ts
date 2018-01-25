@@ -16,6 +16,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.quizList = this.qService.quizObserver;
+    this.quizList = this.qService.quizSubject;
   }
 }

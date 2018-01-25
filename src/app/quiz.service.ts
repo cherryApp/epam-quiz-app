@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Quiz } from './model/quiz';
 import { Observable } from 'rxjs/Observable';
+import { Subscriber } from 'rxjs/Subscriber';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class QuizService {
 
-  quizObserver: Observable<Quiz[]>;
+  quizSubject: Subject<Quiz[]> = new Subject();
 
-  quizList: Array<Quiz> = [
+  private quizList: Array<Quiz> = [
     {name: "quiz1", title: "Kedvenc ételeid", description: "válaszd ki a kedvenc ételed"},
     {name: "quiz2", title: "Kedvenc állataid", description: "válaszd ki a kedvenc állatod"},
     {name: "quiz3", title: "Kedvenc zenéid", description: "válaszd ki a kedvenc zenéd"},
@@ -18,13 +20,13 @@ export class QuizService {
   ];
 
   constructor() {
-    this.quizObserver = new Observable(observer => {
-      setInterval( () => {
-        let index = Math.floor(Math.random() * this.quizList.length);
-        this.quizList[index].active = !this.quizList[index].active;
-        observer.next(this.quizList);
-      }, 1000);
-    });
+    setInterval( () => {
+      let index = Math.floor(Math.random() * this.quizList.length);
+      this.quizList[index].active = !this.quizList[index].active;
+      this.quizSubject.next(this.quizList);
+    }, 1000);
+
+    setTimeout( () => { this.quizSubject.complete(); }, 5000);
   }
 
 
