@@ -3,10 +3,11 @@ import { Quiz } from './model/quiz';
 import { Observable } from 'rxjs/Observable';
 import { Subscriber } from 'rxjs/Subscriber';
 import { Subject } from 'rxjs/Subject';
+import { Http } from '@angular/http';
 
 @Injectable()
 export class QuizService {
-
+  apiUrl: string = "http://localhost:3999/quiz";
   quizSubject: Subject<Quiz[]> = new Subject();
 
   private quizList: Array<Quiz> = [
@@ -19,14 +20,20 @@ export class QuizService {
     {name: "quiz7", title: "Kedvenc őseid", description: "válaszd ki a kedvenc ősöd"}
   ];
 
-  constructor() {
-    setInterval( () => {
-      let index = Math.floor(Math.random() * this.quizList.length);
-      this.quizList[index].active = !this.quizList[index].active;
-      this.quizSubject.next(this.quizList);
-    }, 1000);
+  constructor(private http: Http) {
 
-    setTimeout( () => { this.quizSubject.complete(); }, 5000);
+  }
+
+  getAll() {
+    this.http.get(this.apiUrl).forEach(value => {
+      console.log(value);
+    });
+  }
+
+  create(quiz?: Quiz): void {
+    this.http.post(this.apiUrl, {}).forEach( (value) => {
+      console.log("post complete: ", value);
+    });
   }
 
 

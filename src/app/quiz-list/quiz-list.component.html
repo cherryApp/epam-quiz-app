@@ -11,3 +11,16 @@ active: <input type="checkbox" [(ngModel)]="activeCheck">
       {{ quiz.title }}
   </a>
 </div>
+
+<div class="row">
+  <div class="col-lg-4">
+    <div class="btn-group">
+      <button (click)="getQuizes()" class="btn btn-info">
+        GetQuizes
+      </button>
+      <button (click)="postQuiz()" class="btn btn-success">
+        PostQuiz
+      </button>
+    </div>
+  </div>
+</div>
