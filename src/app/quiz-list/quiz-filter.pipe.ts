@@ -7,7 +7,7 @@ import { Quiz } from '../model/quiz';
 export class QuizFilterPipe implements PipeTransform {
 
   transform(quizList: Quiz[], active: boolean = false, phrase: string = ""): Quiz[] {
-    if (!quizList.filter) return quizList;
+    if (!quizList) return quizList;
     return quizList.filter( (quiz: Quiz) => {
       let activeFilter = (active && quiz.active) || !active;
       let phraseFilter = (quiz.title.toLowerCase()
