@@ -4,7 +4,9 @@ var quizModel = require('../model/quizModel');
 
 /* GET quiz listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  quizModel.find((err, data) => {
+    res.json(data);
+  });
 });
 
 /* Post quiz listing. */

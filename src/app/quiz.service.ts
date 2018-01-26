@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subscriber } from 'rxjs/Subscriber';
 import { Subject } from 'rxjs/Subject';
 import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class QuizService {
@@ -20,14 +21,12 @@ export class QuizService {
     {name: "quiz7", title: "Kedvenc őseid", description: "válaszd ki a kedvenc ősöd"}
   ];
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
 
   }
 
-  getAll() {
-    this.http.get(this.apiUrl).forEach(value => {
-      console.log(value);
-    });
+  getAll(): Observable<Quiz[]> {
+    return this.http.get<Quiz[]>(this.apiUrl);
   }
 
   create(quiz?: Quiz): void {

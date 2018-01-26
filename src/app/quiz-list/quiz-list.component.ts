@@ -11,18 +11,18 @@ import { QuizService } from '../quiz.service';
 export class QuizListComponent implements OnInit {
 
   @Input() list: Observable<Quiz[]>;
-  isActive: string;
+  isActive: Quiz;
   phrase: string = "";
   activeCheck: boolean = false;
 
   constructor(private qService: QuizService) {}
 
   setActiveQuiz(quiz: Quiz) {
-    this.isActive = quiz.name;
+    this.isActive = quiz;
   }
 
   ngOnInit() {
-    console.log( this.list );
+    this.list = this.qService.getAll();
   }
 
   getQuizes() {
