@@ -34,3 +34,8 @@ rendelése, statisztika a kitöltésekről.
 * FormBuilder, FormsModule
 * Pipe
 * Service
+
+## Feladat: 2018-01-26
+1. A főoldalról egy quiz -re kattintva navigáljon a quiz részletes adatainak oldalára, az id alapján (/quiz/:id).
+2. Quiz részletes oldalon a quiz adatainak megjelenítése (/quiz/:id).
+3. Quiz részletes oldalon a quiz -hez tartozó kérdések megjelenítése.

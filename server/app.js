@@ -38,9 +38,12 @@ app.use( (req, res, next) => {
   next();
 });
 
+app.use( require('./module/authModule') );
+
 app.use('/', index);
 app.use('/users', users);
 app.use('/quiz', require('./routes/quiz'));
+app.use('/admin', require('./routes/admin'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
