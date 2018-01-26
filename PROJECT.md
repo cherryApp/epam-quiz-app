@@ -26,8 +26,10 @@ rendelése, statisztika a kitöltésekről.
 
 ### Angular technológiák
 * Template
+* Module
+* Directive
 * Data-Binding
-* Obervable
+* Observable
 * HttpClient
 * FormBuilder, FormsModule
 * Pipe
