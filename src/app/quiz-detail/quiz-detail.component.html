@@ -1,2 +1,12 @@
 <h2>Töltsd ki a Quiz -t!</h2>
-<p>Quiz id: {{ quizId | async }}</p>
+
+<div class="row" *ngFor="let question of questions">
+  <div class="col-lg-6">
+    <h3>Kérdés: {{ question.content }}</h3>
+    <ul>
+      <li *ngFor="let answer of question.answers">
+        {{ answer.content }}
+      </li>
+    </ul>
+  </div>
+</div>

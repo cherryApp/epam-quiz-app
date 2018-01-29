@@ -6,7 +6,7 @@ const quizSchema = new Schema({
   title: {type: String},
   description: {type: String},
   active: {type: Boolean, default: false},
-  questions: {type: [mongoose.SchemaTypes.ObjectId], default: []}
+  questions: [{type: mongoose.SchemaTypes.ObjectId, ref: "question"}]
 });
 
 module.exports = mongoose.model("quiz", quizSchema);

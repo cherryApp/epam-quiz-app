@@ -55,7 +55,9 @@ router.get('/generate', (req, res, next) => {
 
 /* Get one quiz. */
 router.get("/:id", (req, res, next) => {
-  quizModel.findOne({_id: req.params.id}, (err, quiz) => {
+  quizModel.findOne({_id: req.params.id})
+    .populate("questions")
+    .exec( (err, quiz) => {
     if (err || !quiz) {
       return res.sendStatus(404);
     }
