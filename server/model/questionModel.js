@@ -6,7 +6,7 @@ const questionSchema = new Schema({
   title: {type: String},
   content: {type: String},
   description: {type: String},
-  answers: [Object]
+  answers: [{correct: Boolean, content: String}]
 });
 
 module.exports = mongoose.model("question", questionSchema);
