@@ -11,6 +11,7 @@ import { QuizListComponent } from './quiz-list/quiz-list.component';
 import { QuizService } from './quiz.service';
 import { QuizFilterPipe } from './quiz-list/quiz-filter.pipe';
 import { QuizDetailComponent } from './quiz-detail/quiz-detail.component';
+import { QuizComponent } from './admin/quiz/quiz.component';
 
 // Setup routing roles.
 const routeConfig: Routes = [
@@ -21,6 +22,10 @@ const routeConfig: Routes = [
   {
     path: "quiz/:id",
     component: QuizDetailComponent
+  },
+  {
+    path: "admin/quiz/:id",
+    component: QuizComponent
   },
   {
     path: "**",
@@ -34,7 +39,8 @@ const routeConfig: Routes = [
     NavComponent,
     QuizListComponent,
     QuizFilterPipe,
-    QuizDetailComponent
+    QuizDetailComponent,
+    QuizComponent
   ],
   imports: [
     BrowserModule,

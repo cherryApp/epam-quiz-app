@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET admin listing. */
 router.get('/', function(req, res, next) {
-  res.send('this is admin page');
+  res.json({message: "Luke is alive."});
 });
 
 module.exports = router;

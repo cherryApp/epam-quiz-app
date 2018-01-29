@@ -8,5 +8,6 @@ active: <input type="checkbox" [(ngModel)]="activeCheck">
     [class.disabled]="!quiz.active"
     *ngFor="let quiz of list | async | quizFilter:activeCheck:phrase">
       {{ quiz.title }}
+      <a routerLink="/admin/quiz/{{ quiz._id }}">szerkesztés</a>
   </a>
 </div>
