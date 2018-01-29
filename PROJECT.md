@@ -39,3 +39,11 @@ rendelése, statisztika a kitöltésekről.
 1. A főoldalról egy quiz -re kattintva navigáljon a quiz részletes adatainak oldalára, az id alapján (/quiz/:id).
 2. Quiz részletes oldalon a quiz adatainak megjelenítése (/quiz/:id).
 3. Quiz részletes oldalon a quiz -hez tartozó kérdések megjelenítése.
+
+## Feladat: 2018-01-29
+1. A kérdések megjelenítése a Quiz szerkesztő nézetében.
+2. A megjelenített kérdések hozzáadása vagy eltávolítása.
+3. Új komponens: question, az egyes kérdések szerkesztése, új kérdés 
+hozzáadása. Megvalósítás: reaktív form.
+4. Új komponens: answer, az egyes válaszok szerkesztése, új válasz 
+hozzáadása. Megvalósítás: dynamic form.
