@@ -26,9 +26,22 @@
         <strong>Hiba: </strong> kötelező mező!
       </div>
     </div>
-    <div class="form-group">
-      <label for="">Questions</label>
-      <input type="text" class="form-control">
+    <div class="form-group list-group">
+        <button type="button"
+          class="list-group-item list-group-item-action"
+          *ngFor="let question of q.questions">
+            {{ question.title }}
+            <div class="btn-group pull-right">
+              <a class="btn btn-info"
+                routerLink="/admin/question/{{ question._id }}">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </a>
+              <button type="button" class="btn btn-danger"
+                (click)="q.questions.splice(q.questions.indexOf(question), 1)">
+                  <i class="fa fa-times" aria-hidden="true"></i>
+              </button>
+            </div>
+          </button>
     </div>
     <div class="form-group">
       <input name="active" [(ngModel)]="q.active" class="form-check-input"

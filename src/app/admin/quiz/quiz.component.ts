@@ -4,13 +4,14 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { QuizService } from '../../quiz.service';
 import 'rxjs/add/operator/switchMap';
+import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.css']
 })
-export class QuizComponent implements OnInit {
+export class QuizComponent implements OnInit, OnDestroy {
 
   quiz: Observable<Quiz>;
   output: Quiz;
@@ -27,9 +28,21 @@ export class QuizComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngOnDestroy() {
+  }
+
   onSubmit(quiz: Quiz) {
     this.output = quiz;
     this.sent = true;
+  }
+
+  deleteQuestion(ev: MouseEvent, quiz, question): void {
+    ev.preventDefault();
+    ev.stopImmediatePropagation();
+    ev.stopPropagation();
+    console.log(quiz, question);
+    quiz.questions.splice(quiz.questions.indexOf(question), 1);
+    return quiz;
   }
 
 }
